@@ -1,0 +1,31 @@
+{"employees": [
+        {
+            "id": 1,
+            "name": "Rikard Virta",
+            "titel": "Programmer",
+            "mobil": "0708550020",
+            "email": "rikard.virta90@gmail.com"
+        },
+        {
+            "id": 2,
+            "name": "Joel Degerman",
+            "titel": "Programmer",
+            "mobil": "0708550020",
+            "email": "joel.degerman1999@gmail.com"
+        },
+        {
+            "id": 3,
+            "name": "Robban Svensson",
+            "titel": "Programmer",
+            "mobil": "0708550020",
+            "email": "robban.svensson90@gmail.com"
+        },
+        {
+            "id": 4,
+            "name": "Niklas Palm",
+            "titel": "Programmer",
+            "mobil": "0708550020",
+            "email": "niklas.palm90@gmail.com"
+        }
+    ]
+}
