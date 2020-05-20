@@ -2,21 +2,18 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 
-import Employee from "./assets/employees.json";
+import store from "./store";
 
 Vue.config.productionTip = false;
 
 new Vue({
   data() {
-    return {
-      employeeArray: Employee.employees,
-    };
+    return {};
   },
-  methods: {
-    getEmployee(id) {
-      return this.employeeArray.find((employee) => employee.id == id);
-    },
-  },
+
+  methods: {},
+
   router,
+  store,
   render: (h) => h(App),
 }).$mount("#app");

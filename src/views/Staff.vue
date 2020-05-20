@@ -4,13 +4,12 @@
       <h1>Anställda</h1>
       <router-link
         :to="'/staff/' + employee.id"
-        v-for="employee in employeeArray"
+        v-for="employee in getAllEmployees"
         :key="employee.id"
       >
-        <Employee :employee="employee"/>
+        <Employee :employee="employee" />
       </router-link>
-
-    <router-link to="/create">Create staff</router-link>
+      <router-link to="/create">Create staff</router-link>
     </div>
     <router-view />
   </section>
@@ -21,28 +20,18 @@ import Employee from "../components/Employee";
 
 export default {
   components: {
-    Employee
+    Employee,
   },
 
   data() {
-    return {
-      
-      employeeArray: this.$root.employeeArray,
-    };
+    return {};
   },
-  methods: {
-    createEmployee() {
-      this.newEmployee.id = this.currId
-      this.employeeArray.push(this.newEmployee);
-      this.currId++;
-      this.newEmployee = {
-
-      }
+  methods: {},
+  computed: {
+    getAllEmployees() {
+      return this.$store.state.employees;
     },
-    deleteEmployee(value) {
-     this.employeeArray = this.employeeArray.filter(employee => employee.id != value.id)
-    }
-  }
+  },
 };
 </script>
 
@@ -52,12 +41,9 @@ a {
   color: #2c3e50;
 }
 
-
-
 .router-link-active {
   display: block;
   background-color: gray;
-  
 }
 
 .staff-grid-container {

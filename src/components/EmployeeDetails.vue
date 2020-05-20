@@ -1,21 +1,21 @@
 <template>
-  <article class="employee-details">
+  <article class="employee-details" v-if="employee">
     <h1>Detaljer</h1>
     <div class="profile-div">
       <img src="@/assets/img/profile.png" alt />
       <div class="edit-name">
-        <h2>{{employee.name}}</h2>
+        <h2>{{ employee.name }}</h2>
         <router-link :to="'/staff/' + employee.id + '/edit'">
           <img src="@/assets/img/edit.svg" alt />
         </router-link>
       </div>
       <div class="title">
-        <h4>{{employee.titel}}</h4>
+        <h4>{{ employee.titel }}</h4>
       </div>
 
       <div class="email-and-number">
-        <p>{{employee.email}}</p>
-        <p>{{employee.mobil}}</p>
+        <p>{{ employee.email }}</p>
+        <p>{{ employee.mobil }}</p>
       </div>
     </div>
   </article>
@@ -24,8 +24,8 @@
 <script>
 export default {
   props: {
-    employee: Object
-  }
+    employee: Object,
+  },
 };
 </script>
 <style lang="scss" scoped>

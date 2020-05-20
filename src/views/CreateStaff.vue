@@ -16,26 +16,21 @@
 export default {
   data() {
     return {
-      currId: 5,
       newEmployee: {
         id: "",
         name: "",
         titel: "",
         mobil: "",
-        email: ""
-      }
+        email: "",
+      },
     };
   },
   methods: {
     createEmployee() {
-      this.newEmployee.id = this.currId;
-      this.$root.employeeArray.push(this.newEmployee)
-      this.currId++;
-      this.newEmployee = {};
-    }
-  }
+      this.$store.dispatch("createEmployee", this.newEmployee);
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

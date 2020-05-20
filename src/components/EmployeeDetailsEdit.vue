@@ -4,22 +4,18 @@
     <div class="profile-div">
       <img src="@/assets/img/profile.png" alt />
       <div class="edit-name">
-        <input type="text" v-model="employee.name" />
-        <router-link :to="'/staff/' + employee.id">
-          <img src="@/assets/img/check.svg" alt />
-        </router-link>
+        <input type="text" v-model="updatedEmployee.name" />
+        <img src="@/assets/img/check.svg" alt @click="updateEmployee" />
       </div>
       <div class="title">
-        <input type="text" v-model="employee.titel" />
+        <input type="text" v-model="updatedEmployee.titel" />
       </div>
 
       <div class="email-and-number">
-        <input type="text" v-model="employee.email" />
-        <input type="text" v-model="employee.mobil" />
+        <input type="text" v-model="updatedEmployee.email" />
+        <input type="text" v-model="updatedEmployee.mobil" />
       </div>
-      <router-link to="/staff">
-        <button @click="deleteMe()">Delete me</button>
-      </router-link>
+      <button @click="deleteMe">Delete me</button>
     </div>
   </article>
 </template>
@@ -27,18 +23,34 @@
 <script>
 export default {
   props: {
-    employee: Object
+    employee: Object,
   },
 
   data() {
-    return {};
+    return {
+      updatedEmployee: {
+        id: this.employee.id,
+        name: this.employee.name,
+        titel: this.employee.titel,
+        email: this.employee.email,
+        mobil: this.employee.mobil,
+      },
+    };
   },
   methods: {
     deleteMe() {
-      confirm("Do you want to delete");
-      this.$emit("deleteEmployee", this.employee);
-    }
-  }
+      if (confirm("Do you want to delete")) {
+        this.$store.commit("deleteEmployee", this.employee);
+        this.$router.push("/staff/");
+      }
+    },
+    updateEmployee() {
+      if (confirm("Do you want to update")) {
+        this.$store.commit("updateEmployee", this.updatedEmployee);
+        this.$router.push("/staff/" + this.employee.id);
+      }
+    },
+  },
 };
 </script>
 

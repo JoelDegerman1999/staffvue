@@ -23,10 +23,10 @@ const routes = [
       },
       {
         path: "/create",
-        component: CreateStaff
+        component: CreateStaff,
       },
     ],
-  }
+  },
 ];
 
 const router = new VueRouter({

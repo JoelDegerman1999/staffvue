@@ -1,28 +1,24 @@
 <template>
   <section>
-    <EmployeeDetailsEdit :employee="getEmployee" @deleteEmployee="deleteEmployee"/>
+    <EmployeeDetailsEdit :employee="getEmployee" />
   </section>
 </template>
 
 <script>
-import EmployeeDetailsEdit from '../components/EmployeeDetailsEdit'
+import EmployeeDetailsEdit from "../components/EmployeeDetailsEdit";
 export default {
   components: {
-    EmployeeDetailsEdit
+    EmployeeDetailsEdit,
   },
   computed: {
     getEmployee() {
-      return this.$root.getEmployee(this.$route.params.id);
-    }
+      return this.$store.getters.getEmployeeById(
+        Number.parseInt(this.$route.params.id)
+      );
+    },
   },
-  methods: {
-    deleteEmployee(value) {
-       this.$emit("deleteEmployee", value)
-    }
-  }
-}
+  methods: {},
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <EmployeeDetails :employee="getEmployee"/>
+    <EmployeeDetails :employee="getEmployee" />
   </section>
 </template>
 
@@ -9,20 +9,20 @@ import EmployeeDetails from "../components/EmployeeDetails";
 
 export default {
   components: {
-    EmployeeDetails
-    },
+    EmployeeDetails,
+  },
   data() {
     return {};
   },
   computed: {
     getEmployee() {
-      return this.$root.getEmployee(this.$route.params.id);
-    }
+      return this.$store.getters.getEmployeeById(
+        Number.parseInt(this.$route.params.id)
+      );
+    },
   },
-  methods: {
-  }
+  methods: {},
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
